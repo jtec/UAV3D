@@ -1,0 +1,5 @@
+Material jME Logo : Common/MatDefs/Misc/SimpleTextured.j3md {
+    MaterialParameters {
+        m_ColorMap : Interface/Logo/Monkey.jpg
+    }
+}

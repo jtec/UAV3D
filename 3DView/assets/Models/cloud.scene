@@ -1,0 +1,70 @@
+<scene export_time="1435759670.281388" exported_by="j.bolting" previous_export_time="0" formatVersion="1.0.1" >
+  <nodes >
+    <node name="Lamp.001" >
+      <position y="4.508903" x="-1.967408" z="-1.449176" />
+      <rotation qw="1.000000" qz="-0.000000" qy="0.000000" qx="0.000000" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="2.0" shadow="true" type="directional" name="Lamp.001" >
+        <position y="4.508903" x="-1.967408" z="-1.449176" />
+        <lightAttenuation quadratic="0.0" constant="1.0" range="5000" linear="0.03333335240683057" />
+        <direction y="-1.0" x="0.0" z="0.0" />
+        <colourDiffuse r="0.0" b="1.0" g="0.373856782913208" />
+        <colourSpecular r="0.0" b="1.0" g="0.373856782913208" />
+        <colourShadow r="0.0" b="1.0" g="0.373856782913208" />
+      </light>
+    </node>
+    <node name="Cube" >
+      <position y="0.000000" x="0.000000" z="-0.000000" />
+      <rotation qw="1.000000" qz="-0.000000" qy="0.000000" qx="0.000000" />
+      <scale y="0.885810" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <entity anisotropic_friction="False" meshFile="Cube.mesh" name="Cube" friction_z="1.0" friction_y="1.0" friction_x="1.0" mass="1.0" actor="False" lock_trans_y="False" lock_trans_x="False" inertia_tensor="0.4000000059604645" lock_trans_z="False" physics_type="STATIC" mass_radius="1.0" velocity_min="0.0" damping_rot="0.1589999943971634" velocity_max="0.0" damping_trans="0.02539999969303608" lock_rot_z="False" lock_rot_x="False" lock_rot_y="False" ghost="False" />
+    </node>
+    <node name="Lamp" >
+      <position y="4.508903" x="3.051246" z="-1.449176" />
+      <rotation qw="0.569423" qz="-0.272512" qy="0.757030" qx="0.168527" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <light powerScale="3.0" shadow="true" type="directional" name="Lamp" >
+        <position y="4.508903" x="3.051246" z="-1.449176" />
+        <lightAttenuation quadratic="0.0" constant="1.0" range="5000" linear="0.03333335240683057" />
+        <direction y="-0.795" x="0.055" z="0.605" />
+        <colourDiffuse r="1.0" b="0.6600653529167175" g="0.9330319166183472" />
+        <colourSpecular r="1.0" b="0.6600653529167175" g="0.9330319166183472" />
+        <colourShadow r="1.0" b="0.6600653529167175" g="0.9330319166183472" />
+      </light>
+    </node>
+    <node name="Camera" >
+      <position y="-0.177063" x="-0.023020" z="3.870515" />
+      <rotation qw="0.676525" qz="-0.000000" qy="0.000000" qx="0.736419" />
+      <scale y="1.000000" x="1.000000" z="1.000000" />
+      <game >
+        <sensors />
+        <actuators />
+      </game>
+      <camera projectionType="perspective" fov="0.5033799435163735" name="Camera" >
+        <clipping near="0.10000000149011612" far="100.0" nearPlaneDist="0.10000000149011612" farPlaneDist="100.0" />
+      </camera>
+    </node>
+  </nodes>
+  <externals >
+    <item type="material" >
+      <file name="D:\j.bolting\Dropbox\UAS\UAV3D\3DView\assets\Models\Material.003.material" />
+    </item>
+  </externals>
+  <environment >
+    <colourAmbient r="0.0" b="0.0" g="0.0" />
+    <colourBackground r="0.38652175664901733" b="1.0" g="0.5128723382949829" />
+    <colourDiffuse r="0.38652175664901733" b="1.0" g="0.5128723382949829" />
+  </environment>
+</scene>

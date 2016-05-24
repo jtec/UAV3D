@@ -1,0 +1,11 @@
+Material My Material : Common/MatDefs/Light/Lighting.j3md {
+     MaterialParameters {
+        UseAlpha : false
+        SteepParallax : false
+        Diffuse : 1.0 0.2 0.6 1.0
+        Ambient : 0.6 0.0 0.6 1.0
+     }
+    AdditionalRenderState {
+      Wireframe Off
+    }
+}
