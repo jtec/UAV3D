@@ -29,12 +29,12 @@ public class ACNode extends Node {
     Geometry[] breadcrumbs = new Geometry[30];
     int breadcrumbCounter = 0;
     ColorRGBA color;
-    Node staticNode;
+    public Node staticNode;
     AssetManager am;
     Mesh trail;
     Vector3f lastTrailPoint = Vector3f.ZERO;
     Aircraft model;
-    Node trailNode;
+    public Node trailNode;
     int id;
     boolean leaveTrail;
     State.Model3D visual;
@@ -64,13 +64,17 @@ public class ACNode extends Node {
         this.id = id;
         leaveTrail = true;
 
-        this.model = new Zagi(this.am, this.color, id);
+        this.model = new Zagi(this.am, this.color, id, this);
         this.attachChild(this.model);
         this.setVisual(State.Model3D.ZAGI);
     }
 
     public void setLeaveTrail(boolean leaveTrail) {
         this.leaveTrail = leaveTrail;
+    }
+
+    public void cleanup() {
+        this.model.cleanup();
     }
 
     protected void clearTracks() {
@@ -165,24 +169,26 @@ public class ACNode extends Node {
     }
 
     public void setVisual(State.Model3D v) {
-        if (v != this.visual){
+        if (v != this.visual) {
             this.detachChild(this.model);
             boolean isghost = model.hasGhostLook();
             if (v == State.Model3D.DLG) {
-                this.model = new DLG(this.am, this.color, this.id);
+                this.model = new DLG(this.am, this.color, this.id, this);
             } else if (v == State.Model3D.SAILPLANE) {
-                this.model = new Sailplane(this.am, this.color, id);
+                this.model = new Sailplane(this.am, this.color, id, this);
             } else if (v == State.Model3D.ZAGI) {
-                this.model = new Zagi(this.am, this.color, id);
-            }else if (v == State.Model3D.QUAD) {
-                this.model = new Quad(this.am, this.color, id);
-            }else if (v == State.Model3D.BALL) {
-                this.model = new Ball(this.am, this.color, this.id);
-            }else if (v == State.Model3D.CLOUD) {
-                this.model = new Cloud(this.am, this.color, id);
-            }
-            else if (v == State.Model3D.CUBE) {
-                this.model = new Cube(this.am, this.color, id);
+                this.model = new Zagi(this.am, this.color, id, this);
+            } else if (v == State.Model3D.QUAD) {
+                this.model = new Quad(this.am, this.color, id, this);
+            } else if (v == State.Model3D.BALL) {
+                this.model = new Ball(this.am, this.color, this.id, this);
+            } else if (v == State.Model3D.CLOUD) {
+                this.model = new Cloud(this.am, this.color, id, this);
+            } else if (v == State.Model3D.CUBE) {
+                this.model = new Cube(this.am, this.color, id, this);
+            } else if (v == State.Model3D.VORTEX) {
+                this.model = new Vortex(this.am, this.color, id, this);
+                this.setLeaveTrail(false);
             }
             this.model.setGhostLook(isghost);
             this.attachChild(this.model);

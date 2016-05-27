@@ -539,6 +539,7 @@ public class App extends SimpleApplication {
 
     private void removeAircraft(int id) {
         this.state.aircraft.get(id).clearTracks();
+        this.state.aircraft.get(id).cleanup();
         this.state.aircraft.get(id).removeFromParent();
         this.state.aircraft.remove(id);
         System.out.println("Removed aircraft, id= " + id);
@@ -552,6 +553,7 @@ public class App extends SimpleApplication {
         while (iter.hasNext()) {
             int id = this.state.aircraft.get(iter.next()).id;
             this.state.aircraft.get(id).clearTracks();
+            this.state.aircraft.get(id).cleanup();
             this.state.aircraft.get(id).removeFromParent();
             // This is the way to remove elements from a map while iterating over the map:
             iter.remove();

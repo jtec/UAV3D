@@ -13,10 +13,10 @@ import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Mesh;
-import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.VertexBuffer;
 import com.jme3.util.BufferUtils;
+import upside.ACNode;
 
 /**
  *
@@ -24,8 +24,8 @@ import com.jme3.util.BufferUtils;
  */
 public class Quad extends Aircraft {
 
-    public Quad(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Quad(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

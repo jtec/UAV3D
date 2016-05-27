@@ -41,6 +41,8 @@ public class util {
         arrow.setLineWidth(4); // make arrow thicker
         putShape(arrow, ColorRGBA.Blue, n, assetGuy).setLocalTranslation(pos);
     }
+    
+    
 
     private static Geometry putShape(Mesh shape, ColorRGBA color, Node n, AssetManager assetGuy) {
         Geometry g = new Geometry("camera coordinate axis", shape);

@@ -8,6 +8,7 @@ import com.jme3.asset.AssetManager;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
+import upside.ACNode;
 import upside.util;
 
 /**
@@ -16,8 +17,8 @@ import upside.util;
  */
 public class Ball extends Aircraft {
 
-    public Ball(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Ball(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

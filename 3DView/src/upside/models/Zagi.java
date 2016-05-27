@@ -17,6 +17,7 @@ import com.jme3.scene.Node;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.VertexBuffer;
 import com.jme3.util.BufferUtils;
+import upside.ACNode;
 
 /**
  *
@@ -24,8 +25,8 @@ import com.jme3.util.BufferUtils;
  */
 public class Zagi extends Aircraft {
 
-    public Zagi(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Zagi(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

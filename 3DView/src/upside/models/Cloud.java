@@ -20,6 +20,7 @@ import com.jme3.scene.Spatial;
 import com.jme3.scene.shape.Sphere;
 import com.jme3.texture.Texture;
 import com.jme3.util.TangentBinormalGenerator;
+import upside.ACNode;
 
 /**
  *
@@ -27,8 +28,8 @@ import com.jme3.util.TangentBinormalGenerator;
  */
 public class Cloud extends Aircraft {
 
-    public Cloud(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Cloud(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

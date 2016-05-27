@@ -8,6 +8,7 @@ import com.jme3.renderer.queue.RenderQueue.Bucket;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.shape.Box;
+import upside.ACNode;
 
 /**
  *
@@ -19,8 +20,8 @@ public class Cube extends Aircraft {
     private Geometry cube2Geo;
     float lasttransparency;
 
-    public Cube(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Cube(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

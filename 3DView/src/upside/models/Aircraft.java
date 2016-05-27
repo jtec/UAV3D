@@ -13,7 +13,6 @@ import com.jme3.scene.Mesh;
 import com.jme3.scene.Spatial;
 import com.jme3.scene.VertexBuffer;
 import com.jme3.util.BufferUtils;
-import com.jme3.app.SimpleApplication;
 import com.jme3.font.BitmapFont;
 import com.jme3.font.BitmapText;
 import com.jme3.material.Material;
@@ -21,6 +20,7 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Node;
 import com.jme3.scene.control.BillboardControl;
+import upside.ACNode;
 
 public class Aircraft extends Node {
 
@@ -35,14 +35,19 @@ public class Aircraft extends Node {
     boolean ghostlook = false;
     int id;
     protected Node labelNode;
+    ACNode acNode;
 
-    public Aircraft(AssetManager am, ColorRGBA color, int id) {
+    public Aircraft(AssetManager am, ColorRGBA color, int id, ACNode acNode) {
         super();
         this.id = id;
         this.am = am;
         this.color = color;
+        this.acNode = acNode;
         this.load3D();
         // util.attachWireBox(Vector3f.ZERO, 1, ColorRGBA.Brown, this, am);
+    }
+    
+    public void cleanup(){
     }
 
     private void load3D() {

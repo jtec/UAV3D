@@ -10,6 +10,7 @@ import com.jme3.math.ColorRGBA;
 import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
 import com.jme3.scene.Spatial;
+import upside.ACNode;
 
 /**
  *
@@ -17,8 +18,8 @@ import com.jme3.scene.Spatial;
  */
 public class Sailplane extends Aircraft {
 
-    public Sailplane(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public Sailplane(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 

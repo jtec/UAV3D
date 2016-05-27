@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package upside.models;
 
 import com.jme3.asset.AssetManager;
@@ -11,6 +7,8 @@ import com.jme3.math.FastMath;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Spatial;
+import upside.ACNode;
+import upside.util;
 
 /**
  *
@@ -18,8 +16,8 @@ import com.jme3.scene.Spatial;
  */
 public class DLG extends Aircraft {
 
-    public DLG(AssetManager am, ColorRGBA color, int id) {
-        super(am, color, id);
+    public DLG(AssetManager am, ColorRGBA color, int id, ACNode staticNode) {
+        super(am, color, id, staticNode);
         this.load3D();
     }
 
@@ -48,7 +46,7 @@ public class DLG extends Aircraft {
         this.detachAllChildren();
         Spatial model = am.loadModel("Models/dlg.j3o");
         this.attachChild(model);
-        model.setLocalScale(0.4f);
+        model.setLocalScale(0.5f);
         // Fix orientation:
         Quaternion q = new Quaternion();
         q = q.fromAngles(FastMath.DEG_TO_RAD * (-90), FastMath.DEG_TO_RAD * 0, FastMath.DEG_TO_RAD * (-90));
@@ -60,6 +58,7 @@ public class DLG extends Aircraft {
         // Shift it into the right place:
         propeller.move(+0.43f, 0, -0.05f);
         labelNode = this.attachTextLabel("Facundo" + " #" + this.id);
+        util.attachCoordinateAxes(Vector3f.ZERO, new Vector3f(1f, 1f, 1f), this, am);
     }
 
     @Override
