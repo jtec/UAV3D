@@ -5,9 +5,15 @@
 package upside.models;
 
 import com.jme3.asset.AssetManager;
+import com.jme3.material.Material;
+import com.jme3.material.RenderState;
 import com.jme3.math.ColorRGBA;
 import com.jme3.math.Quaternion;
 import com.jme3.math.Vector3f;
+import com.jme3.renderer.queue.RenderQueue;
+import com.jme3.scene.Geometry;
+import com.jme3.scene.shape.Box;
+import com.jme3.scene.shape.Sphere;
 import upside.ACNode;
 import upside.util;
 
@@ -31,6 +37,19 @@ public class Ball extends Aircraft {
         this.detachAllChildren();
         util.attachCoordinateAxes(Vector3f.ZERO, new Vector3f(1, 1, 1), this, am);
         // util.attachWireBox(Vector3f.ZERO, 1, ColorRGBA.Brown, this, am);
+        Sphere s = new Sphere(16, 16, 0.2f);
+        Geometry geom = new Geometry("Box", s);
+
+        Material mat = new Material(am,
+                "Common/MatDefs/Misc/Unshaded.j3md");
+        //cube2Mat.setTexture("ColorMap", am.loadTexture("Textures/ColoredTex/Monkey.png"));
+        mat.setColor("Color", new ColorRGBA(1, 0, 0, 0.5f)); // 0.5f is the alpha value
+        mat.getAdditionalRenderState().setBlendMode(RenderState.BlendMode.Alpha);
+        geom.setQueueBucket(RenderQueue.Bucket.Transparent);
+        mat.getAdditionalRenderState().setWireframe(false);
+        
+        geom.setMaterial(mat);
+        this.attachChild(geom);
     }
 
     @Override

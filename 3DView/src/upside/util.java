@@ -28,21 +28,22 @@ public class util {
         n.attachChild(g);
     }
 
-    public static void attachCoordinateAxes(Vector3f pos, Vector3f length, Node n, AssetManager assetGuy) {
+    public static Node attachCoordinateAxes(Vector3f pos, Vector3f length, Node n, AssetManager assetGuy) {
+        Node nod = new Node();
         Arrow arrow = new Arrow(Vector3f.UNIT_X.mult(length.x));
         arrow.setLineWidth(4); // make arrow thicker
-        putShape(arrow, ColorRGBA.Red, n, assetGuy).setLocalTranslation(pos);
+        putShape(arrow, ColorRGBA.Red, nod, assetGuy).setLocalTranslation(pos);
 
         arrow = new Arrow(Vector3f.UNIT_Y.mult(length.y));
         arrow.setLineWidth(4); // make arrow thicker
-        putShape(arrow, ColorRGBA.Green, n, assetGuy).setLocalTranslation(pos);
+        putShape(arrow, ColorRGBA.Green, nod, assetGuy).setLocalTranslation(pos);
 
         arrow = new Arrow(Vector3f.UNIT_Z.mult(length.z));
         arrow.setLineWidth(4); // make arrow thicker
-        putShape(arrow, ColorRGBA.Blue, n, assetGuy).setLocalTranslation(pos);
+        putShape(arrow, ColorRGBA.Blue, nod, assetGuy).setLocalTranslation(pos);
+        n.attachChild(nod);
+        return nod;
     }
-    
-    
 
     private static Geometry putShape(Mesh shape, ColorRGBA color, Node n, AssetManager assetGuy) {
         Geometry g = new Geometry("camera coordinate axis", shape);

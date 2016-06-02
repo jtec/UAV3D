@@ -56,7 +56,7 @@ public class DLG extends Aircraft {
         propeller.setLocalScale(1.5f);
         this.attachChild(propeller);
         // Shift it into the right place:
-        propeller.move(+0.43f, 0, -0.05f);
+        propeller.move(+0.50f, 0, -0.05f);
         labelNode = this.attachTextLabel("Facundo" + " #" + this.id);
         util.attachCoordinateAxes(Vector3f.ZERO, new Vector3f(1f, 1f, 1f), this, am);
     }

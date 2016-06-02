@@ -135,7 +135,7 @@ public class ACNode extends Node {
             if (breadcrumbCounter >= breadcrumbs.length) {
                 breadcrumbCounter = 0;
             }
-            if (d < 2) {
+            if (d < 200) {
                 addToTrail(this.getLocalTranslation());
             }
             lastTrailPoint = this.getLocalTranslation().clone();
@@ -146,6 +146,9 @@ public class ACNode extends Node {
         this.model.setControlSurfaces(msg.da, msg.de, msg.dr, msg.den, msg.df);
         // Update 3D model
         this.setVisual(msg.visual);
+        if(this.id > 100){
+            this.model.setGhostLook(true);
+        }
     }
 
     public Color generateColor(int id) {
