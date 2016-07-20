@@ -38,9 +38,11 @@ public class ACNode extends Node {
     int id;
     boolean leaveTrail;
     State.Model3D visual;
-
+    long lasttraildroptime;
+            
     public ACNode(AssetManager assetManager, int id, Node staticNode) {
         super();
+        
         trailNode = new Node();
         staticNode.attachChild(trailNode);
         this.am = assetManager;
@@ -129,19 +131,22 @@ public class ACNode extends Node {
 
         // Figure out whether to emit a new breadcrumb:
         float d = this.getLocalTranslation().subtract(lastTrailPoint).length();
+        float dt_ms = System.currentTimeMillis() - this.lasttraildroptime;
         if ((d > 1) && leaveTrail) {
             // System.out.print(d);
             breadcrumbCounter++;
             if (breadcrumbCounter >= breadcrumbs.length) {
                 breadcrumbCounter = 0;
             }
-            if (d < 200) {
+            // Avoid contuínuing the trail if the simulation has been interrupted:
+            if (dt_ms < 500) {
+            //if (d < 200) {
                 addToTrail(this.getLocalTranslation());
             }
+            lasttraildroptime = System.currentTimeMillis();
             lastTrailPoint = this.getLocalTranslation().clone();
             // breadcrumbs[breadcrumbCounter].setLocalTranslation(this.getLocalTranslation());
         }
-
         // Update control surface deflections:
         this.model.setControlSurfaces(msg.da, msg.de, msg.dr, msg.den, msg.df);
         // Update 3D model
