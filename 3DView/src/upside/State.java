@@ -25,7 +25,8 @@ public class State {
         BALL,
         CLOUD,
         CUBE,
-        VORTEX
+        VORTEX,
+        MAVION
     }
     
     public ViewModes viewmode;

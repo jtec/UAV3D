@@ -168,7 +168,6 @@ public class ACNode extends Node {
         cols[7] = Color.CYAN;
         cols[8] = Color.MAGENTA;
         cols[9] = Color.PINK;
-
         if (id > 9) {
             id = 0;
         }
@@ -196,6 +195,9 @@ public class ACNode extends Node {
                 this.model = new Cube(this.am, this.color, id, this);
             } else if (v == State.Model3D.VORTEX) {
                 this.model = new Vortex(this.am, this.color, id, this);
+                this.setLeaveTrail(false);
+            }else if (v == State.Model3D.MAVION) {
+                this.model = new Mavion(this.am, this.color, id, this);
                 this.setLeaveTrail(false);
             }
             this.model.setGhostLook(isghost);

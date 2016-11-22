@@ -74,11 +74,11 @@ public class SimulationUDPServerThread extends Thread {
         qPhi = qPhi.fromAngleAxis(phi, Vector3f.UNIT_X);
         q = q.mult(qPhi);
         
-        AircraftStateMessage msg = new AircraftStateMessage((int) 200,  // ID
+        AircraftStateMessage msg = new AircraftStateMessage((int) 20,  // ID
                 x, y, -50f,                                             // NED position
                 q.getW(), q.getX(), q.getY(), q.getZ(),                 // Attitude quaternion
                 0f, 0f, 0f, 0.5f, 0f,                                      // Control surface deflections
-                upside.State.Model3D.QUAD
+                upside.State.Model3D.MAVION
                 );
         ByteBuffer buffer = msg.pack();
 
