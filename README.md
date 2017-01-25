@@ -1,7 +1,7 @@
 UAV3D
 =====
 
-A UAV Visualization Environment based on the jmonkey (jmonkeyengine.org) java game engine.
+A UAV Visualization Environment based on the jmonkey (jmonkeyengine.org) java game engine. Run the UAV3D/3DView/dist/UAV3D.jar file to give it a go.
 
 Copyright (C) 2016 Jan Bolting
 
